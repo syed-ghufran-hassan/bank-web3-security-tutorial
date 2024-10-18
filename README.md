@@ -1,1 +1,1 @@
-## Web3 Security Toutorial | Bank Challenge
+## Web3 Security Tutorial | Bank Challenge
