@@ -55,6 +55,7 @@ contract BankV3Test is Test {
         wethArbitrum.approve(address(bank), 1e18);
         bank.depositWETH(1e18);
 
+        vm.expectRevert();
         bank.withdrawWETH(0.5e18, mohamed);
         vm.stopPrank();
     }
