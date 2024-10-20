@@ -53,7 +53,7 @@ For the solutions to the challenges, you will find them in `/solutions` folder. 
 |BankV4|[/challenges/BankV4.md](/challenges/BankV4.md)|[/solutions/BankV4.md](/solutions/BankV4.md)|
 |BankV5|[/challenges/BankV5.md](/challenges/BankV5.md)|[/solutions/BankV5.md](/solutions/BankV5.md)|
 
-Happy Hacking :)
+Happy Hacking!
 
 
 
