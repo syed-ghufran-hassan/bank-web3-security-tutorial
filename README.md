@@ -7,6 +7,14 @@ This repo is like CTF challenges, but it differs in the structure. Our tutorial 
 ## Installation
 To install the Repo, you must have `Foundry` framework installed on your PC. If you don't have one, you can install it from [here](https://getfoundry.sh/)
 
+If you already have Foundry installed, it is better to update `Foundry` version to be compatible with that version. You can update it using the following command
+
+```powershell
+foundryup
+```
+
+Once you updated or installed `Foundry` successfully, you can start setting up our Tutorial.
+
 1. Clone the GitHub repository into your PC, and open the Repo folder on your Code Editor
 ```powershell
 git clone https://github.com/Al-Qa-qa/bank-web3-security-tutorial.git
