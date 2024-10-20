@@ -29,9 +29,9 @@ contract BankV3 {
         uint256 withdrawalAmount = accountsBalances[msg.sender];
         require(withdrawalAmount >= amount, "Amount to withdraw exceeds balance");
 
+        accountsBalances[msg.sender] -= amount;
         bool success = IERC20(USDT).transfer(receipent, amount);
         require(success, "Transfering Failed");
-        accountsBalances[msg.sender] -= amount;
     }
 
     /// @notice withdraw USD with calling a Fallcak function
@@ -42,9 +42,9 @@ contract BankV3 {
         uint256 withdrawalAmount = accountsBalances[msg.sender];
         require(withdrawalAmount >= amount, "Amount to withdraw exceeds balance");
 
+        accountsBalances[msg.sender] -= amount;
         bool success = IERC20(USDT).transfer(receipent, amount);
         require(success, "Transfering Failed");
-        accountsBalances[msg.sender] -= amount;
 
         (bool fallbackSuccess,) = receipent.call(data);
         require(fallbackSuccess, "Fallback Function reverted");

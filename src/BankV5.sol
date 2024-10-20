@@ -29,8 +29,8 @@ contract BankV5 {
         uint256 withdrawalAmount = accountsBalances[msg.sender];
         require(withdrawalAmount >= amount, "Amount to withdraw exceeds balance");
 
+        accountsBalances[msg.sender] -= amount;
         bool success = IERC20(WETH).transferFrom(address(this), receipent, amount);
         require(success, "Transfering Failed");
-        accountsBalances[msg.sender] -= amount;
     }
 }

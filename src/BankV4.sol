@@ -35,9 +35,9 @@ contract BankV4 is AccessControl {
         uint256 withdrawalAmount = accountsBalances[msg.sender];
         require(withdrawalAmount >= amount, "Amount to withdraw exceeds balance");
 
+        accountsBalances[msg.sender] -= amount;
         bool success = IERC20(USDT).transfer(receipent, amount);
         require(success, "Transfering Failed");
-        accountsBalances[msg.sender] -= amount;
     }
 
     /// @notice Blacklist a given account and prevent him from withdrawing
@@ -61,8 +61,8 @@ contract BankV4 is AccessControl {
         require(hasRole(BLACKLISTED_WITHDRAW, account), "Accound is not BlackListed");
 
         uint256 amount = accountsBalances[account];
+        accountsBalances[msg.sender] = 0;
         bool success = IERC20(USDT).transfer(receipent, amount);
         require(success, "Transfering Failed");
-        accountsBalances[msg.sender] = 0;
     }
 }
