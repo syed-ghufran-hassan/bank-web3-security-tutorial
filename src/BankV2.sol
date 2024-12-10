@@ -16,9 +16,11 @@ contract BankV2 {
         uint256 withdrawalAmount = accountsBalances[msg.sender];
         require(withdrawalAmount > 0, "No ether to withdraw");
 
+      accountsBalances[msg.sender] = 0;
+
         (bool success,) = msg.sender.call{value: withdrawalAmount}("");
         require(success, "Withdrawal Failed");
 
-        accountsBalances[msg.sender] = 0;
+      //  accountsBalances[msg.sender] = 0;
     }
 }
