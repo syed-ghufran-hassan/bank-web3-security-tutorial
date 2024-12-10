@@ -17,6 +17,7 @@ contract BankV1 {
     /// @dev Allows anyone to deposit ether to any
     /// @param account The account receiving the deposited Ether
     function depositEther(address account) external payable {
+        require(account == msg.sender, "You can only deposit to your own account");
         require(activatedAccounts[account], "Account is not activated yet");
         require(msg.value > 0, "No Ether sent");
 
@@ -30,6 +31,7 @@ contract BankV1 {
     /// @param amount The amount to withdraw
     /// @param recipent The receiver of ether
     function withdrawEther(address account, uint256 password, uint256 amount, address recipent) external {
+        require(account == msg.sender, "Unauthorized access");
         require(activatedAccounts[account], "Account is not activated yet");
         require(accountsPasswords[account] == password, "Account is not activated yet");
         require(accountsBalances[account] >= amount, "Amount to withdraw exceeds balance");
